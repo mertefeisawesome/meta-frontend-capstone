@@ -5,7 +5,7 @@ const Header = () => {
     <header>
       <div className="header-left">
         <h1>Little Lemon</h1>
-        <h2>Chicago</h2>
+        <h4>Chicago</h4>
         <p>
           We are a family owned Mediterranean restaurant, focused on traditional
           recipes served with a modern twist.
@@ -13,7 +13,7 @@ const Header = () => {
         <button>Reserve a Table</button>
       </div>
       <div className="header-right">
-        <img src="./assets/Logo.svg" alt="Logo" />
+        <img src="./assets/images/restauranfood.jpg" alt="Restaurant Food" />
       </div>
     </header>
   );

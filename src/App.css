@@ -1,18 +1,56 @@
 nav {
   display: flex;
   justify-content: space-between;
+  padding: 18px 290px;
 }
 
 nav ul {
   display: flex;
   list-style-type: none;
-  gap: 24px;
-  text-transform: uppercase;
+  gap: 48px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-family: "karla", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 header {
   display: flex;
   justify-content: space-between;
+  background-color: #495E57;
+  padding-left: 290px;
+  padding-right:290px;
+  margin-bottom: 110px;
+}
+
+header p {
+  max-width: 400px;
+  color:#FFFFFF;
+  font-family: "karla", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 48px;
+}
+
+.header-right img {
+  width: 400px;
+  height: 500px;
+  object-fit: cover;
+  object-position: center;
+  margin: 20px;
+  margin-bottom: -80px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 290px;
+  padding-right:290px;
 }
 
 .specials {
@@ -25,12 +63,73 @@ header {
   justify-content: space-between;
 } 
 
-.specials-menu {
+.specials-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  color: red;
 }
 
 footer {
   display:flex;
   justify-content: space-between;
+  padding-left: 290px;
+  padding-right:290px;
+}
+
+footer ul {
+  list-style-type: none;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+button, img {
+  border-radius: 16px;
+}
+
+button {
+  background-color: #F4CE14;
+  border:none;
+  padding: 12px 24px;
+  font-family: "karla", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+h1 {
+  font-family: "markazi text", serif;
+  font-size: 48px;
+  color: #F4CE14;
+  margin-bottom:0;
+}
+
+h2 {
+  font-family: "karla", sans-serif;
+  font-size: 20px;
+  font-weight:bolder;
+  text-transform: uppercase;
+  color: #333333;
+}
+
+h4 {
+  font-family: "markazi text", serif;
+  font-size: 36px;
+  color: #FFFFFF;
+  margin-top:0;
 }
