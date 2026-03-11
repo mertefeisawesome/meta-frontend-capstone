@@ -1,0 +1,12 @@
+footer .container {
+  display:flex;
+  justify-content: space-between;
+}
+
+footer ul {
+  list-style-type: none;
+}
+
+footer a {
+  text-decoration: none;
+}
