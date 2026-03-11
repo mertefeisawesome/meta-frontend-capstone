@@ -43,8 +43,9 @@ header p {
 }
 
 .header-right img {
-  width: 400px;
-  height: 500px;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 4/5;
   object-fit: cover;
   object-position: center;
   margin: 20px;
@@ -55,7 +56,7 @@ header p {
 main .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap:80px;
 }
 
 .specials {
@@ -79,7 +80,6 @@ main .container {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 400px;
   font-family: "karla", sans-serif;
   background-color: #EDEFEE;
   border-radius: 16px;
@@ -130,8 +130,8 @@ main .container {
 }
 
 .testimonial-cards {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 24px;
 }
 
