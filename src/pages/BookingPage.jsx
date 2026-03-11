@@ -1,7 +1,14 @@
 import React from "react";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const BookingPage = () => {
-  return <div>BookingPage</div>;
+  return (
+    <>
+      <Nav />
+      <Footer />
+    </>
+  );
 };
 
 export default BookingPage;
