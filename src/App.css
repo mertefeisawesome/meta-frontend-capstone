@@ -171,11 +171,9 @@ main .container {
   border-radius: 16px;
 }
 
-footer {
+footer .container {
   display:flex;
   justify-content: space-between;
-  padding-left: 290px;
-  padding-right:290px;
 }
 
 footer ul {
