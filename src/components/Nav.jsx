@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Nav = () => {
   return (
@@ -7,22 +8,22 @@ const Nav = () => {
         <img src="/assets/Logo.svg" alt="Little Lemon Logo" />
         <ul>
           <li>
-            <a href="#home">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="#about">About</a>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <a href="#menu">Menu</a>
+            <Link to="/menu">Menu</Link>
           </li>
           <li>
-            <a href="#reservations">Reservations</a>
+            <Link to="/booking">Reservations</Link>
           </li>
           <li>
-            <a href="#order-online">Order Online</a>
+            <Link to="/order-online">Order Online</Link>
           </li>
           <li>
-            <a href="#login">Login</a>
+            <Link to="/login">Login</Link>
           </li>
         </ul>
       </div>
