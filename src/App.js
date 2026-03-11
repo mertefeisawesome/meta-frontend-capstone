@@ -1,4 +1,5 @@
 import "./App.css";
+import BookingPage from "./pages/BookingPage";
 import Home from "./pages/Home";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
@@ -8,7 +9,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/booking" element={<BookingPage />} />
         </Routes>
       </BrowserRouter>
     </>
