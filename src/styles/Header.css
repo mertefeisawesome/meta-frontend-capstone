@@ -1,0 +1,29 @@
+header {
+  background-color: #495E57;
+ }
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 110px;
+}
+
+header p {
+  max-width: 400px;
+  color:#FFFFFF;
+  font-family: "karla", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 48px;
+}
+
+.header-right img {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  object-position: center;
+  margin: 20px;
+  margin-bottom: -80px;
+  border-radius: 16px;
+}
