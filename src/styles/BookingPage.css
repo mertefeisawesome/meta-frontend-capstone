@@ -1,0 +1,29 @@
+html, body {
+  height: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-main {
+  flex: 1;
+  background-color: #495E57;
+  padding: 48px 0;
+}
+
+.booking-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    justify-content: center;
+}
+
+h1 {
+  font-family: "markazi text", serif;
+  font-size: 48px;
+  color: #F4CE14;
+}
