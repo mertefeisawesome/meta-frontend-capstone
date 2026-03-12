@@ -11,6 +11,7 @@ const BookingForm = ({
   occasion,
   setOccasion,
   availableTimes,
+  dispatch,
 }) => {
   return (
     <form style={{ display: "grid", maxWidth: "200px", gap: "20px" }}>
@@ -19,7 +20,10 @@ const BookingForm = ({
         type="date"
         id="res-date"
         value={date}
-        onChange={(e) => setDate(e.target.value)}
+        onChange={(e) => {
+          setDate(e.target.value);
+          dispatch({ date: e.target.value });
+        }}
       />
       <label htmlFor="res-time">Choose time</label>
       <select
