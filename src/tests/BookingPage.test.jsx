@@ -1,20 +1,55 @@
-import { initializeTimes, updateTimes } from "../utils/bookingReducer";
+import React from "react";
+import { render, screen, fireEvent } from "@testing-library/react";
+import BookingPage from "../pages/BookingPage";
+import { MemoryRouter } from "react-router-dom";
 
-describe("BookingPage", () => {
-  test("initializeTimes returns correct times", () => {
-    const times = initializeTimes();
-    expect(times).toEqual([
-      "17:00",
-      "18:00",
-      "19:00",
-      "20:00",
-      "21:00",
-      "22:00",
-    ]);
+describe("Booking Page", () => {
+  test("Renders H1 correctly", () => {
+    render(
+      <MemoryRouter>
+        <BookingPage />
+      </MemoryRouter>,
+    );
+    const heading = screen.getByRole("heading", { level: 1 });
+    expect(heading).toHaveTextContent("Book a Table");
   });
-  test("updateTimes returns state unchanged", () => {
-    const initialState = ["17:00", "18:00", "19:00"];
-    const newState = updateTimes(initialState, { date: "2026-01-01" });
-    expect(newState).toEqual(initialState);
+  test("Users can submit the form", () => {
+    const mockSubmit = jest.fn();
+    render(
+      <MemoryRouter>
+        <BookingPage submitForm={mockSubmit} />
+      </MemoryRouter>,
+    );
+    const dateInput = screen.getByLabelText(/choose date/i);
+    const timeSelect = screen.getByLabelText(/choose time/i);
+    const guestsInput = screen.getByLabelText(/number of guests/i);
+    const occasionSelect = screen.getByLabelText(/occasion/i);
+
+    expect(dateInput).toBeInTheDocument();
+    expect(timeSelect).toBeInTheDocument();
+    expect(guestsInput).toBeInTheDocument();
+    expect(occasionSelect).toBeInTheDocument();
+
+    // Simulate user input
+    fireEvent.change(dateInput, { target: { value: "2024-12-31" } });
+    fireEvent.change(timeSelect, { target: { value: "19:00" } });
+    fireEvent.change(guestsInput, { target: { value: 4 } });
+    fireEvent.change(occasionSelect, { target: { value: "Birthday" } });
+
+    expect(dateInput.value).toBe("2024-12-31");
+    expect(timeSelect.value).toBe("19:00");
+    expect(guestsInput.value).toBe("4");
+    expect(occasionSelect.value).toBe("Birthday");
+
+    const submitButton = screen.getByDisplayValue(/Make Your Reservation/i);
+    expect(submitButton).toBeInTheDocument();
+
+    fireEvent.click(submitButton);
+    expect(mockSubmit).toHaveBeenCalledWith({
+      date: "2024-12-31",
+      time: "19:00",
+      guests: 4,
+      occasion: "Birthday",
+    });
   });
 });

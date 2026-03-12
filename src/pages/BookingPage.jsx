@@ -5,7 +5,13 @@ import Footer from "../components/Footer";
 import BookingForm from "../components/BookingForm";
 import "../styles/BookingPage.css";
 
-const BookingPage = () => {
+function defaultSubmitForm({ date, time, guests, occasion }) {
+  console.log(
+    `Form submitted! \n\nDate: ${date}, Time: ${time}, Guests: ${guests}, Occasion: ${occasion}`,
+  );
+}
+
+const BookingPage = ({ submitForm = defaultSubmitForm }) => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [guests, setGuests] = useState(1);
@@ -38,6 +44,7 @@ const BookingPage = () => {
               setOccasion={setOccasion}
               availableTimes={availableTimes}
               dispatch={dispatch}
+              submitForm={submitForm}
             />
           </section>
         </div>

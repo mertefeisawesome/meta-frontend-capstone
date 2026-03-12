@@ -12,11 +12,16 @@ const BookingForm = ({
   setOccasion,
   availableTimes,
   dispatch,
+  submitForm,
 }) => {
   return (
     <form
       style={{ display: "grid", maxWidth: "200px", gap: "20px" }}
       aria-describedby="booking-desc"
+      onSubmit={(e) => {
+        e.preventDefault();
+        submitForm({ date, time, guests, occasion });
+      }}
     >
       <label htmlFor="res-date">Choose date</label>
       <input
