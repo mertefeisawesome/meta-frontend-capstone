@@ -3,6 +3,8 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import BookingPage from "../pages/BookingPage";
 import { MemoryRouter } from "react-router-dom";
 
+const mockSubmit = jest.fn();
+
 describe("Booking Page", () => {
   test("Renders H1 correctly", async () => {
     render(
@@ -14,7 +16,6 @@ describe("Booking Page", () => {
     expect(heading).toHaveTextContent("Book a Table");
   });
   test("Users can submit the form", async () => {
-    const mockSubmit = jest.fn();
     render(
       <MemoryRouter>
         <BookingPage submitForm={mockSubmit} />
@@ -51,5 +52,42 @@ describe("Booking Page", () => {
       guests: 4, // number, component coalesces input value
       occasion: "Birthday",
     });
+  });
+  test("submit button is disabled when form is invalid", () => {
+    render(
+      <MemoryRouter>
+        <BookingPage submitForm={mockSubmit} />
+      </MemoryRouter>,
+    );
+    const submitButton = screen.getByDisplayValue(/make your reservation/i);
+
+    expect(submitButton).toBeDisabled();
+  });
+
+  test("submit button is enabled when form is valid", () => {
+    render(
+      <MemoryRouter>
+        <BookingPage submitForm={mockSubmit} />
+      </MemoryRouter>,
+    );
+    fireEvent.change(screen.getByLabelText(/choose date/i), {
+      target: { value: "2026-01-01" },
+    });
+
+    fireEvent.change(screen.getByLabelText(/choose time/i), {
+      target: { value: "17:00" },
+    });
+
+    fireEvent.change(screen.getByLabelText(/number of guests/i), {
+      target: { value: "4" },
+    });
+
+    fireEvent.change(screen.getByLabelText(/occasion/i), {
+      target: { value: "Anniversary" },
+    });
+
+    const submitButton = screen.getByDisplayValue(/make your reservation/i);
+
+    expect(submitButton).not.toBeDisabled();
   });
 });

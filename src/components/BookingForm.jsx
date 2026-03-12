@@ -63,7 +63,9 @@ const BookingForm = ({
       >
         <option value="">Select time</option>
         {availableTimes.map((time) => (
-          <option key={time}>{time}</option>
+          <option key={time} value={time}>
+            {time}
+          </option>
         ))}
       </select>
       <label htmlFor="guests">Number of guests</label>
