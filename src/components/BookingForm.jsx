@@ -23,7 +23,7 @@ const BookingForm = ({
       />
       <label htmlFor="res-time">Choose time</label>
       <select
-        id="res-time "
+        id="res-time"
         value={time}
         onChange={(e) => setTime(e.target.value)}
       >
