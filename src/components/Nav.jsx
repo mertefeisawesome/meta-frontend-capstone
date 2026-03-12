@@ -1,8 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Nav.css";
 
 const Nav = () => {
+  const navigate = useNavigate();
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/"); // Navigate to home if section not found
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  };
+
   return (
     <nav>
       <div className="container">
@@ -12,19 +29,27 @@ const Nav = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link
+              to="/"
+              onClick={(e) => {
+                scrollToSection("about");
+              }}
+            >
+              About
+            </Link>
           </li>
           <li>
-            <Link to="/menu">Menu</Link>
+            <Link
+              to="/"
+              onClick={(e) => {
+                scrollToSection("menu");
+              }}
+            >
+              Menu
+            </Link>
           </li>
           <li>
             <Link to="/booking">Reservations</Link>
-          </li>
-          <li>
-            <Link to="/order-online">Order Online</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
           </li>
         </ul>
       </div>

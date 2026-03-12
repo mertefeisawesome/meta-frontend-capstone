@@ -5,7 +5,7 @@ const Main = () => {
   return (
     <main>
       <div className="container">
-        <div className="specials">
+        <div className="specials" id="menu">
           <div className="specials-header">
             <h2>Specials</h2>
             <button>Online Menu</button>
@@ -150,7 +150,7 @@ const Main = () => {
             </div>
           </div>
         </div>
-        <div className="about">
+        <div className="about" id="about">
           <h2>About Us</h2>
           <div className="about-content">
             <p>
