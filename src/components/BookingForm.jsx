@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/BookingForm.css";
 
-const BookingForm = () => {
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const [guests, setGuests] = useState(1);
-  const [occasion, setOccasion] = useState("");
-
-  const availableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-
+const BookingForm = ({
+  date,
+  setDate,
+  time,
+  setTime,
+  guests,
+  setGuests,
+  occasion,
+  setOccasion,
+  availableTimes,
+}) => {
   return (
     <form style={{ display: "grid", maxWidth: "200px", gap: "20px" }}>
       <label htmlFor="res-date">Choose date</label>
