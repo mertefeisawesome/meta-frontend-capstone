@@ -5,7 +5,16 @@ import Footer from "../components/Footer";
 import BookingForm from "../components/BookingForm";
 import "../styles/BookingPage.css";
 
+/*global submitAPI */
+
 function defaultSubmitForm({ date, time, guests, occasion }) {
+  const formData = {
+    date: date,
+    time: time,
+    guests: guests,
+    occasion: occasion,
+  };
+  submitAPI(formData);
   console.log(
     `Form submitted! \n\nDate: ${date}, Time: ${time}, Guests: ${guests}, Occasion: ${occasion}`,
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/BookingForm.css";
+import { useNavigate } from "react-router-dom";
 
 const BookingForm = ({
   date,
@@ -14,13 +15,19 @@ const BookingForm = ({
   dispatch,
   submitForm,
 }) => {
+  const navigate = useNavigate();
   return (
     <form
       style={{ display: "grid", maxWidth: "200px", gap: "20px" }}
       aria-describedby="booking-desc"
       onSubmit={(e) => {
         e.preventDefault();
-        submitForm({ date, time, guests, occasion });
+        try {
+          submitForm({ date, time, guests, occasion });
+          navigate("/confirmed", { state: { date, time, guests, occasion } });
+        } catch (error) {
+          console.error("Error submitting form:", error);
+        }
       }}
     >
       <label htmlFor="res-date">Choose date</label>

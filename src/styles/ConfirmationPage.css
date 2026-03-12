@@ -1,0 +1,19 @@
+html, body {
+  height: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.confirmation-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap:48px;
+  background-color: #495E57;
+  padding: 48px 0;
+  align-items: center;
+}

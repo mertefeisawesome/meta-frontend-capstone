@@ -1,0 +1,63 @@
+/* layout and base colouring */
+table.confirmation {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+  border: 1px solid #F4CE14;
+  font-family: "Karla", sans-serif;
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+
+/* common cell appearance */
+table.confirmation th,
+table.confirmation td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #F4CE14;
+}
+
+/* header row */
+table.confirmation thead {
+  background: #F4CE14;
+  color: #000;
+}
+
+/* alternating row backgrounds */
+table.confirmation tbody tr:nth-child(even) {
+  background: rgba(244, 206, 20, 0.1);
+}
+
+/* simple hover feedback */
+table.confirmation tr:hover {
+  background: rgba(244, 206, 20, 0.2);
+}
+
+/* responsive: stack cells on narrow viewports */
+@media (max-width: 600px) {
+  table.confirmation,
+  table.confirmation thead,
+  table.confirmation tbody,
+  table.confirmation th,
+  table.confirmation td,
+  table.confirmation tr {
+    display: block;
+  }
+  table.confirmation tr {
+    margin-bottom: 1rem;
+  }
+  table.confirmation td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+  table.confirmation td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 45%;
+    padding-left: 1rem;
+    font-weight: bold;
+    text-align: left;
+  }
+}
