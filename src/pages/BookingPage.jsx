@@ -21,10 +21,10 @@ function defaultSubmitForm({ date, time, guests, occasion }) {
 }
 
 const BookingPage = ({ submitForm = defaultSubmitForm }) => {
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
   const [time, setTime] = useState("");
   const [guests, setGuests] = useState(1);
-  const [occasion, setOccasion] = useState("");
+  const [occasion, setOccasion] = useState("Birthday");
 
   const [availableTimes, dispatch] = useReducer(
     updateTimes,

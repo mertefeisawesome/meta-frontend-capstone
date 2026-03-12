@@ -16,6 +16,17 @@ const BookingForm = ({
   submitForm,
 }) => {
   const navigate = useNavigate();
+
+  const isFormValid = () => {
+    return (
+      date !== "" &&
+      time !== "" &&
+      guests >= 1 &&
+      guests <= 10 &&
+      occasion !== ""
+    );
+  };
+
   return (
     <form
       style={{ display: "grid", maxWidth: "200px", gap: "20px" }}
@@ -50,6 +61,7 @@ const BookingForm = ({
         required
         aria-required="true"
       >
+        <option value="">Select time</option>
         {availableTimes.map((time) => (
           <option key={time}>{time}</option>
         ))}
@@ -75,7 +87,11 @@ const BookingForm = ({
         <option>Birthday</option>
         <option>Anniversary</option>
       </select>
-      <input type="submit" value="Make Your reservation" />
+      <input
+        type="submit"
+        value="Make Your reservation"
+        disabled={!isFormValid()}
+      />
     </form>
   );
 };
