@@ -30,6 +30,9 @@ const BookingPage = () => {
         <div className="container">
           <section className="booking-section">
             <h1>Book a Table</h1>
+            <p id="booking-desc">
+              Please select a date and time for your reservation.
+            </p>
             <BookingForm
               date={date}
               setDate={setDate}

@@ -14,7 +14,10 @@ const BookingForm = ({
   dispatch,
 }) => {
   return (
-    <form style={{ display: "grid", maxWidth: "200px", gap: "20px" }}>
+    <form
+      style={{ display: "grid", maxWidth: "200px", gap: "20px" }}
+      aria-describedby="booking-desc"
+    >
       <label htmlFor="res-date">Choose date</label>
       <input
         type="date"
@@ -24,12 +27,16 @@ const BookingForm = ({
           setDate(e.target.value);
           dispatch({ date: e.target.value });
         }}
+        required
+        aria-required="true"
       />
       <label htmlFor="res-time">Choose time</label>
       <select
         id="res-time"
         value={time}
         onChange={(e) => setTime(e.target.value)}
+        required
+        aria-required="true"
       >
         {availableTimes.map((time) => (
           <option key={time}>{time}</option>
@@ -44,6 +51,8 @@ const BookingForm = ({
         id="guests"
         value={guests}
         onChange={(e) => setGuests(parseInt(e.target.value))}
+        required
+        aria-required="true"
       />
       <label htmlFor="occasion">Occasion</label>
       <select
